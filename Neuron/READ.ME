@@ -1,0 +1,255 @@
+# Tela de Estatísticas
+
+## Objetivo da Tela
+
+Permitir que o usuário acompanhe de forma detalhada sua evolução na plataforma através de métricas de estudo, produtividade, desempenho, gamificação e progresso acadêmico.
+
+A tela deverá utilizar o mesmo padrão visual do Dashboard, apresentando informações mais detalhadas e históricas.
+
+---
+
+# Requisitos Funcionais
+
+## RF-EST-01 – Visualizar Estatísticas
+
+O sistema deverá permitir que o usuário visualize suas estatísticas de estudo.
+
+---
+
+## RF-EST-02 – Exibir Tempo Estudado
+
+O sistema deverá exibir:
+
+* Tempo estudado hoje;
+* Tempo estudado na semana;
+* Tempo estudado no mês.
+
+---
+
+## RF-EST-03 – Exibir Gráfico de Tempo
+
+O sistema deverá apresentar um gráfico de barras representando o tempo estudado.
+
+---
+
+## RF-EST-04 – Exibir Flashcards Revisados
+
+O sistema deverá exibir a quantidade total de flashcards revisados.
+
+---
+
+## RF-EST-05 – Exibir Taxa de Acerto Geral
+
+O sistema deverá exibir a taxa de acerto geral do usuário.
+
+---
+
+## RF-EST-06 – Exibir Desempenho por Coleção
+
+O sistema deverá exibir para cada coleção:
+
+* Nome;
+* Quantidade de revisões realizadas;
+* Taxa de acerto;
+* Quantidade de flashcards.
+
+---
+
+## RF-EST-07 – Exibir Sessões Pomodoro
+
+O sistema deverá exibir:
+
+* Quantidade de sessões concluídas;
+* Tempo total estudado através de Pomodoro.
+
+---
+
+## RF-EST-08 – Exibir Metas Concluídas
+
+O sistema deverá exibir a quantidade de metas concluídas.
+
+---
+
+## RF-EST-09 – Exibir XP
+
+O sistema deverá exibir o XP acumulado pelo usuário.
+
+---
+
+## RF-EST-10 – Exibir Nível
+
+O sistema deverá exibir o nível atual do usuário.
+
+---
+
+## RF-EST-11 – Exibir Progresso de Nível
+
+O sistema deverá exibir o progresso atual para o próximo nível.
+
+---
+
+## RF-EST-12 – Exibir Ofensiva
+
+O sistema deverá exibir:
+
+* Ofensiva atual;
+* Melhor ofensiva alcançada.
+
+---
+
+## RF-EST-13 – Exibir Conquistas
+
+O sistema deverá exibir:
+
+* Quantidade total de conquistas desbloqueadas;
+* Quantidade de conquistas por raridade.
+
+---
+
+## RF-EST-14 – Atualização Automática
+
+O sistema deverá atualizar automaticamente as informações após a conclusão de atividades válidas.
+
+---
+
+## RF-EST-15 – Layout Consistente
+
+O sistema deverá utilizar o mesmo padrão visual adotado pelo Dashboard.
+
+---
+
+# Regras de Negócio
+
+## RN-EST-01
+
+Somente atividades válidas deverão ser utilizadas para cálculo das estatísticas.
+
+---
+
+## RN-EST-02
+
+Sessões invalidadas não deverão compor nenhuma métrica exibida.
+
+---
+
+## RN-EST-03
+
+A taxa de acerto deverá utilizar os pesos definidos pelo sistema de revisão.
+
+| Avaliação | Peso |
+| --------- | ---- |
+| Errei     | 0    |
+| Difícil   | 0,5  |
+| Médio     | 0,75 |
+| Fácil     | 1    |
+
+---
+
+## RN-EST-04
+
+A consulta de flashcards fora das sessões de revisão não deverá impactar as estatísticas.
+
+---
+
+## RN-EST-05
+
+O tempo estudado deverá considerar:
+
+* Sessões de revisão válidas;
+* Sessões Pomodoro válidas;
+* Sessões de estudo livre válidas.
+
+---
+
+## RN-EST-06
+
+A quantidade de flashcards revisados deverá considerar apenas revisões concluídas.
+
+---
+
+## RN-EST-07
+
+A ofensiva deverá ser calculada com base em atividades válidas registradas pelo sistema.
+
+---
+
+## RN-EST-08
+
+O XP exibido deverá corresponder ao valor total acumulado pelo usuário.
+
+---
+
+## RN-EST-09
+
+A melhor ofensiva deverá representar o maior número de dias consecutivos já alcançado pelo usuário.
+
+---
+
+## RN-EST-10
+
+As conquistas exibidas deverão considerar apenas conquistas desbloqueadas.
+
+---
+
+## RN-EST-11
+
+As estatísticas deverão ser atualizadas imediatamente após:
+
+* Conclusão de revisão;
+* Conclusão de sessão Pomodoro;
+* Conclusão de meta;
+* Desbloqueio de conquista.
+
+---
+
+## RN-EST-12
+
+O Dashboard deverá apresentar uma visão resumida, enquanto a Tela de Estatísticas deverá apresentar informações detalhadas.
+
+---
+
+## RN-EST-13
+
+A Tela de Estatísticas deverá seguir a mesma identidade visual do Dashboard para garantir consistência de navegação e experiência do usuário.
+
+---
+
+# Critérios de Aceitação
+
+## CA-EST-01 – Exibição de Estatísticas
+
+Dado que o usuário possua atividades registradas,
+
+Quando acessar a Tela de Estatísticas,
+
+Então o sistema deverá exibir suas métricas atualizadas.
+
+---
+
+## CA-EST-02 – Atualização de Dados
+
+Dado que o usuário conclua uma atividade válida,
+
+Quando retornar à Tela de Estatísticas,
+
+Então os dados deverão refletir a nova atividade realizada.
+
+---
+
+## CA-EST-03 – Sessão Inválida
+
+Dado que uma sessão seja invalidada,
+
+Quando as estatísticas forem recalculadas,
+
+Então essa sessão não deverá ser considerada.
+
+---
+
+## CA-EST-04 – Consistência
+
+Dado que o usuário navegue entre Dashboard e Estatísticas,
+
+Quando comparar as informações,
+
+Então os valores resumidos do Dashboard deverão corresponder aos dados detalhados exibidos na Tela de Estatísticas.
